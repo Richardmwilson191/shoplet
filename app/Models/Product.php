@@ -17,7 +17,6 @@ class Product extends Model
         'price',
         'img_path',
         'condition',
-        'sold_at'
     ];
 
     public function user()

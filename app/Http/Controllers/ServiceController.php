@@ -15,7 +15,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        return Service::all();
     }
 
     /**
@@ -26,7 +26,7 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        //
+        Service::create($request->all());
     }
 
     /**
@@ -37,7 +37,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return $service;
     }
 
     /**
@@ -49,7 +49,7 @@ class ServiceController extends Controller
      */
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        //
+        $service->update($request->all());
     }
 
     /**
@@ -60,6 +60,6 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
     }
 }

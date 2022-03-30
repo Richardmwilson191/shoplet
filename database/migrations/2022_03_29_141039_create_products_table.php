@@ -22,7 +22,7 @@ return new class extends Migration
             $table->decimal('price', 12, 2);
             $table->string('img_path', 500);
             $table->string('condition', 20);
-            $table->timestamp('sold_at');
+            $table->timestamp('sold_at')->nullable();
             $table->timestamps();
         });
     }

@@ -26,40 +26,40 @@ class ServiceCategoryController extends Controller
      */
     public function store(StoreServiceCategoryRequest $request)
     {
-        //
+        return ServiceCategory::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ServiceCategory  $serviceCategory
+     * @param  \App\Models\ServiceCategory  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(ServiceCategory $serviceCategory)
+    public function show(ServiceCategory $category)
     {
-        //
+        return $category;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateServiceCategoryRequest  $request
-     * @param  \App\Models\ServiceCategory  $serviceCategory
+     * @param  \App\Models\ServiceCategory  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateServiceCategoryRequest $request, ServiceCategory $serviceCategory)
+    public function update(UpdateServiceCategoryRequest $request, ServiceCategory $category)
     {
-        //
+        $category->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ServiceCategory  $serviceCategory
+     * @param  \App\Models\ServiceCategory  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServiceCategory $serviceCategory)
+    public function destroy(ServiceCategory $category)
     {
-        //
+        $category->delete();
     }
 }
