@@ -17,7 +17,8 @@ class ProductCategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "name" => $this->faker->domainWord(),
+            "desc" => $this->faker->sentence()
         ];
     }
 }
