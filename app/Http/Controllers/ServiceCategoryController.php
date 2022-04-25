@@ -26,7 +26,8 @@ class ServiceCategoryController extends Controller
      */
     public function store(StoreServiceCategoryRequest $request)
     {
-        return ServiceCategory::create($request->all());
+        ServiceCategory::create($request->all());
+        return response()->json(['message' => 'Service category created successfully']);
     }
 
     /**
@@ -61,5 +62,6 @@ class ServiceCategoryController extends Controller
     public function destroy(ServiceCategory $category)
     {
         $category->delete();
+        return response()->json();
     }
 }
