@@ -24,7 +24,7 @@ class ProductFactory extends Factory
             'prod_nm' => $this->faker->words(2, true),
             'desc' => $this->faker->sentence(10),
             'price' => $this->faker->numberBetween(100, 99999999),
-            'img_path' => $this->faker->filePath(),
+            'img_path' => 'iPhone.jpg',
             'condition' => 'New',
         ];
     }

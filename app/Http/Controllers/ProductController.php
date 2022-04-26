@@ -26,7 +26,19 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        return Product::create($request->all());
+        $newImageName = storeFile($request, $request->name, 'img', 'images');
+
+        Product::create([
+            'user_id' => $request->user()->id,
+            'product_category_id' => $request->categoryId,
+            'prod_nm' => $request->name,
+            'desc' => $request->desc,
+            'price' => $request->price,
+            'img_path' => $newImageName,
+            'condition' => $request->condition
+        ]);
+
+        return response()->json(['message' => 'Item added successfully']);
     }
 
     /**
