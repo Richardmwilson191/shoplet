@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'user_id',
@@ -18,6 +19,14 @@ class Product extends Model
         'img_path',
         'condition',
     ];
+
+    public function toSearchableArray()
+    {
+        return [
+            'prod_nm' => $this->name,
+        ];
+    }
+
 
     public function user()
     {

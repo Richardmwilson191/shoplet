@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -13,9 +14,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Product::with('user')->paginate(15);
+        return Product::search($request->searchString)
+            ->query(fn ($query) => $query->with('user'))
+            ->paginate(15);
+        // return $request->all();
     }
 
     /**
