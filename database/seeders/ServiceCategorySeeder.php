@@ -14,6 +14,6 @@ class ServiceCategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\ServiceCategory::factory(20)->create();
     }
 }

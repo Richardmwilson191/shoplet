@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ServiceSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,12 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Service::factory(40)->create();
+        $roles = [
+            ['title' => 'superadmin'],
+            ['title' => 'admin'],
+            ['title' => 'user']
+        ];
+
+        Role::insert($roles);
     }
 }

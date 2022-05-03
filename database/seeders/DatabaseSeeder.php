@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ServiceCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,10 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-        \App\Models\ProductCategory::factory(20)->create();
-        \App\Models\ServiceCategory::factory(20)->create();
-        \App\Models\Product::factory(40)->create();
-        \App\Models\Service::factory(40)->create();
+        $this->call([
+            RoleSeeder::class,
+            UserSeeder::class,
+            ProductCategorySeeder::class,
+            ServiceCategorySeeder::class,
+            ProductSeeder::class,
+            ServiceSeeder::class
+        ]);
     }
 }

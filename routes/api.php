@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SellPageController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return $request->user();
     });
     Route::get('/sell', [SellPageController::class, 'index'])->name('sell');
+    Route::apiResource('/users', UserController::class);
     Route::apiResource('/product/category', ProductCategoryController::class);
     Route::apiResource('/service/category', ServiceCategoryController::class);
 });
